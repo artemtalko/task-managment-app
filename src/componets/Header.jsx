@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import logo from './assets/logo.png'
-import iconDown from './assets/arrow-down.jpg'
-import iconUp from './assets/arrow-up.jpg'
-import verticalDots from './assets/vertical-dots.png'
+import logo from '../assets/logo.png'
+import iconDown from '../assets/arrow-down.jpg'
+import iconUp from '../assets/arrow-up.jpg'
+import verticalDots from '../assets/vertical-dots.png'
 
 function Header() {
     const [openDropDown, setOpenDropDown] = useState(false);
