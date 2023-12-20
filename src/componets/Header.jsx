@@ -3,9 +3,10 @@ import logo from '../assets/logo.png'
 import iconDown from '../assets/arrow-down.jpg'
 import iconUp from '../assets/arrow-up.jpg'
 import verticalDots from '../assets/vertical-dots.png'
+import HeaderDropdown from './HeaderDropdown';
 
 function Header() {
-    const [openDropDown, setOpenDropDown] = useState(false);
+    const [openDropDown, setOpenDropdown] = useState(false);
     return (
         <div className='p-4 fixed left-0 bg-white dark:bd-[#2b2c37] z-50 right-0'>
             <header className='flex justify-between dark: text-white items-center'>
@@ -24,14 +25,14 @@ function Header() {
                                 src={ openDropDown ? iconUp : iconDown }
                                 alt="dropdown icon"
                                 className=' w-3 ml-2 cursor-pointer md:hidden'
-                                onClick={() => setOpenDropDown(state => !state)}
+                                onClick={() => setOpenDropdown(state => !state)}
                             />
                         </div>
                     </div>
 
                     {/* Right Side */}
                     <div className=' flex space-x-4 items-center md:space-x-6'>
-                        <button className=' button '>
+                        <button className='hidden md:block button '>
                             + Add New Task
                         </button>
 
@@ -43,6 +44,8 @@ function Header() {
                     </div>
 
             </header>
+
+            {openDropDown && <HeaderDropdown setOpenDropdown={setOpenDropdown}/>}
         </div>
     )
 }
