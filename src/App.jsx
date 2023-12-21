@@ -4,13 +4,16 @@ import Center from "./componets/Center";
 import { useState } from "react";
 
 function App() {
-  const [boardModalOpen, setBoardModalOpen] = useState(false)
+  const [isBoardModalOpen, setIsBoardModalOpen] = useState(false);
 
   return (
     <div>
       {/* Header Section */}
-      <Header boardModalOpen={boardModalOpen} setBoardModalOpen={setBoardModalOpen}/>
-
+      <Header
+          setIsBoardModalOpen={setIsBoardModalOpen}
+          isBoardModalOpen={isBoardModalOpen}
+      />
+      
       {/* Center Section */}
       <Center/>
 
