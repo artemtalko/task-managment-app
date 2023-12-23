@@ -4,7 +4,7 @@ function ElipsisMenu({ type, setOpenEditModal, setOpenDeleteModal }) {
   return (
     <div
       className={
-        type === "Boards"
+        type === "Board"
           ? " absolute  top-16  right-5"
           : " absolute  top-6  right-4"
       }

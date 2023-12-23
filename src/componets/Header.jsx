@@ -6,6 +6,7 @@ import verticalDots from '../assets/vertical-dots.png';
 import HeaderDropdown from './HeaderDropdown';
 import AddEditBoardModal from '../modals/addEditBoardModal';
 import AddEditTaskModal from '../modals/addEditTaskModal';
+import DeleteModal from "../modals/deleteModal";
 import { useDispatch, useSelector } from 'react-redux';
 import ElipsisMenu from "./ElipsisMenu";
 import boardsSlice from '../redux/boardsSlice';
@@ -101,7 +102,7 @@ function Header({ setIsBoardModalOpen, isBoardModalOpen }) {
           />
           {isElipsisMenuOpen && (
             <ElipsisMenu
-              type="Boards"
+              type="Board"
               setOpenEditModal={setOpenEditModal}
               setOpenDeleteModal={setOpenDeleteModal}
             />
