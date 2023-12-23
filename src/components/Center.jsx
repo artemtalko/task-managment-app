@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import SideBar from './SideBar'
+import Column from './Column';
 
 function Center(isBoardModalOpen, setIsBoardModalOpen) {
   const [windowSize, setWindowSize] = useState([window.innerWidth, window.innerHeight]);
@@ -34,7 +35,9 @@ function Center(isBoardModalOpen, setIsBoardModalOpen) {
       {/* Columns Section */}
 
       {
-
+        columns.map((col, index) => (
+          <Column key={index} colIndex={index}/>
+        ))
       }
 
       </div>

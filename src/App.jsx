@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "./componets/Header";
-import Center from "./componets/Center";
-import EmptyBoard from "./componets/EmptyBoard";
+import Header from "./components/Header";
+import Center from "./components/Center";
+import EmptyBoard from "./components/EmptyBoard";
 import boardsSlice from "./redux/boardsSlice";
 
 function App() {
