@@ -7,15 +7,15 @@ import HeaderDropdown from './HeaderDropdown';
 import AddEditBoardModal from '../modals/addEditBoardModal';
 import AddEditTaskModal from '../modals/addEditTaskModal';
 import { useDispatch, useSelector } from 'react-redux';
-
+import ElipsisMenu from "./ElipsisMenu";
 import boardsSlice from '../redux/boardsSlice';
 
 function Header({ setIsBoardModalOpen, isBoardModalOpen }) {
   const [openDropdown, setOpenDropdown] = useState(false);
-  
-  const [boardType, setBoardType] = useState("add");
+  const [isElipsisMenuOpen, setIsElipsisMenuOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
+  const [boardType, setBoardType] = useState("add");
 
   const dispatch = useDispatch();
 
@@ -24,17 +24,17 @@ function Header({ setIsBoardModalOpen, isBoardModalOpen }) {
 
   const onDropdownClick = () => {
     setOpenDropdown((state) => !state);
-    
+    setIsElipsisMenuOpen(false);
     setBoardType("add");
   };
 
   const setOpenEditModal = () => {
     setIsBoardModalOpen(true);
-    
+    setIsElipsisMenuOpen(false);
   };
   const setOpenDeleteModal = () => {
     setIsDeleteModalOpen(true);
-    
+    setIsElipsisMenuOpen(false);
   };
 
   const onDeleteBtnClick = (e) => {
@@ -93,19 +93,25 @@ function Header({ setIsBoardModalOpen, isBoardModalOpen }) {
             onClick={() => {
               setBoardType("edit");
               setOpenDropdown(false)
-    
+              setIsElipsisMenuOpen((prevState) => !prevState);
             }}
             src={verticalDots}
             alt="elipsis"
             className=" cursor-pointer h-6"
           />
-         
+          {isElipsisMenuOpen && (
+            <ElipsisMenu
+              type="Boards"
+              setOpenEditModal={setOpenEditModal}
+              setOpenDeleteModal={setOpenDeleteModal}
+            />
+          )}
         </div>
 
         {openDropdown && (
         <HeaderDropdown
             setOpenDropdown={setOpenDropdown}
-            setBoardModalOpen={setIsBoardModalOpen}
+            setIsBoardModalOpen={setIsBoardModalOpen}
         />
         )}
 
